@@ -1,0 +1,128 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+
+/* Header styling start*/ 
+
+header{
+  width: 100vw;
+  height: 9vh;
+  border-bottom: 2px solid black;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-btn {
+  outline: none;
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  border: 2px solid rgb(37, 150, 190);
+  padding: 8px;
+  border-radius: 15px;
+  background-color: aliceblue;
+  position: relative; 
+}
+
+.nav-btn:hover {
+  background-color: rgb(37, 150, 190);
+}
+
+.nav-btn:active {
+  background-color: rgba(37, 150, 190, 0.5);
+  top: 2px;
+}
+/* Header styling end*/ 
+/* Main styling start*/ 
+main > *{
+  color: aliceblue;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(28,44,92);
+}
+
+.welcome-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#txt{
+  margin: 10px;
+}
+
+/* Style for the sign-up section */
+.sign-up-section {
+  margin: 0 auto;
+  width: 60%;
+  padding: 20px;
+}
+
+/* Style for the form field */
+.form-field {
+  margin-bottom: 20px;
+}
+
+/* Style for the form */
+form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* Style for the fieldset */
+fieldset {
+  border: none;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  color: #666;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+}
+
+
+#submit-btn{
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover */
+#submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Main styling end*/ 

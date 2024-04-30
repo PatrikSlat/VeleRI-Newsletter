@@ -2,13 +2,14 @@ import * as cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import * as nodemailer from 'nodemailer';
 
+let news = {};
+
 async function getData() {
   try {
     const url = 'https://www.veleri.hr/hr/novosti';
     const response = await fetch(url);
     const body = await response.text();
     const $ = cheerio.load(body);
-
 
     const tableRows = $('table.cols-0 tbody tr'); 
 
@@ -18,7 +19,6 @@ async function getData() {
       items.push(text);
     });
 
-    let news = {};
     for (let i = 0; i < items.length; i++) {
         const date = items[i].substring(0, 9);
         const information = items[i].substring(10);
@@ -28,10 +28,11 @@ async function getData() {
         };
     }
     
-    console.log(news)
+    console.log(news[0])
   } catch (error) {
     console.error(error);
   }
+  main();
 }
 
 getData();
@@ -50,13 +51,11 @@ async function main() {
     const info = await transporter.sendMail({
       from: '"VeleriMAIL" <obavijesti.veleri@outlook.com>', // sender address
       to: "patrik.slat@gmail.com", // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
+      subject: "Nova VeleRI Obavijesti", // Subject line
+      text: "", // plain text body
+      html: `<pre>${JSON.stringify(news[0], null, 2)}</pre>`, // html body
     });
   
     console.log("Message sent: %s", info.messageId);
     // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-  }
-
-main();
+}
